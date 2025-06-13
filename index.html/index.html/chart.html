@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Growth Chart: Age 3–6</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f5ff;
+      color: #4b2e83;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #5e35b1;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      border: 1px solid #cba3f0;
+      padding: 10px;
+      text-align: center;
+      background-color: #f3e5f5;
+    }
+
+    th {
+      background-color: #d1c4e9;
+      font-weight: bold;
+    }
+
+    .expected {
+      background-color: #ede7f6;
+      color: #6a1b9a;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .remarks {
+      border: 1px dashed #b39ddb;
+      padding: 15px;
+      background: #f8f3ff;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #9575cd;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background-color: #7e57c2;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    @media print {
+      .btn-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📈 Child Growth Tracker</h1>
+  <h2>Ages 3 to 6 Years</h2>
+  <p class="note">Monitor and record your child's monthly growth and ensure they are developing healthily!</p>
+
+  
+
+  <div class="section">
+    <table>
+      <thead>
+        <tr>
+          <th>Age (Years)</th>
+          <th>Month</th>
+          <th>Height (cm)</th>
+          <th>Weight (kg)</th>
+          <th>BMI</th>
+          <th class="expected">Expected Height</th>
+          <th class="expected">Expected Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Year 3 Sample (Repeat for 4-6) -->
+        <tr><td rowspan="12">3</td><td>Jan</td><td></td><td></td><td></td><td class="expected">95–102</td><td class="expected">13–15</td></tr>
+        <tr><td>Feb</td><td></td><td></td><td></td><td class="expected">95–103</td><td class="expected">13.5–15.5</td></tr>
+        <tr><td>Mar</td><td></td><td></td><td></td><td class="expected">96–104</td><td class="expected">13.5–16</td></tr>
+        <tr><td>Apr</td><td></td><td></td><td></td><td class="expected">96–105</td><td class="expected">14–16</td></tr>
+        <tr><td>May</td><td></td><td></td><td></td><td class="expected">97–106</td><td class="expected">14–16.5</td></tr>
+        <tr><td>Jun</td><td></td><td></td><td></td><td class="expected">98–107</td><td class="expected">14–17</td></tr>
+        <tr><td>Jul</td><td></td><td></td><td></td><td class="expected">98–108</td><td class="expected">14.5–17.5</td></tr>
+        <tr><td>Aug</td><td></td><td></td><td></td><td class="expected">99–109</td><td class="expected">15–18</td></tr>
+        <tr><td>Sep</td><td></td><td></td><td></td><td class="expected">100–110</td><td class="expected">15–18</td></tr>
+        <tr><td>Oct</td><td></td><td></td><td></td><td class="expected">100–111</td><td class="expected">15–18.5</td></tr>
+        <tr><td>Nov</td><td></td><td></td><td></td><td class="expected">101–112</td><td class="expected">15.5–19</td></tr>
+        <tr><td>Dec</td><td></td><td></td><td></td><td class="expected">101–113</td><td class="expected">15.5–19</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section remarks">
+    <h3>📝 Parent Notes:</h3>
+    <p>
+      ✔ Track your child's height and weight every month.<br>
+      ✔ Compare with the expected range to see healthy progress.<br>
+      ✔ If you notice anything unusual, consult a pediatrician.<br>
+      ✔ Use colored pens or stickers to make tracking fun for your child!<br>
+    </p>
+  </div>
+
+  <div class="btn-container">
+    <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <a href="index.html" class="btn">🏡 Back to Home</a>
+  </div>
+
+</body>
+</html>

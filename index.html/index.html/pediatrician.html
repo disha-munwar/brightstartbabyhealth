@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ask a Pediatrician</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f3ff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      background-color: #ffffff;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #5b6bc0;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4655a3;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #5b6bc0;
+    }
+    .confirmation {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Ask a Pediatrician</h2>
+    <form id="pediatricianForm">
+      <label for="parentName">Your Name:</label>
+      <input type="text" id="parentName" name="parentName" required>
+
+      <label for="childAge">Child's Age:</label>
+      <input type="text" id="childAge" name="childAge" required>
+
+      <label for="question">Your Question:</label>
+      <textarea id="question" name="question" rows="5" placeholder="Write your question here..." required></textarea>
+
+      <button type="submit">Submit Question</button>
+    </form>
+
+    <div id="confirmationMessage" class="confirmation">
+      ✅ Thank you! Your question has been received. A pediatrician will respond shortly.
+    </div>
+
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('pediatricianForm');
+    const confirmation = document.getElementById('confirmationMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload
+      confirmation.style.display = 'block'; // show confirmation
+      form.reset(); // clear form fields
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaccination Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef6fc;
+      padding: 20px;
+    }
+
+    .tracker {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    input[type="text"], input[type="date"], button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #dbeeff;
+    }
+
+    .output {
+      background-color: #f0fff0;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    
+    .center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.back-btn {
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #4a5055;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="tracker">
+  <h1>Child Vaccination Tracker</h1>
+
+  <label for="childName">Child's Name:</label>
+  <input type="text" id="childName" placeholder="Enter child's name">
+
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob">
+
+  <button onclick="generateSchedule()">Submit</button>
+
+  <div class="output" id="outputArea" style="display: none;"></div>
+
+  <div id="scheduleArea" style="display: none;">
+    <h2>Vaccination Schedule</h2>
+    <table id="scheduleTable">
+      <tr>
+        <th>Vaccine</th>
+        <th>Due Date</th>
+        <th>Status</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script>
+  const vaccines = [
+    { name: "BCG", weeksAfterBirth: 0 },
+    { name: "Hepatitis B", weeksAfterBirth: 0 },
+    { name: "Polio (OPV)", weeksAfterBirth: 6 },
+    { name: "MMR", weeksAfterBirth: 36 },  // 9 months = 36 weeks
+    { name: "DTP Booster", weeksAfterBirth: 72 } // ~18 months
+  ];
+
+  function generateSchedule() {
+    const name = document.getElementById("childName").value.trim();
+    const dob = document.getElementById("dob").value;
+    const output = document.getElementById("outputArea");
+    const schedule = document.getElementById("scheduleTable");
+    const scheduleContainer = document.getElementById("scheduleArea");
+
+    if (!name || !dob) {
+      output.style.display = "block";
+      output.innerHTML = "<span style='color: red;'>Please enter both name and date of birth.</span>";
+      scheduleContainer.style.display = "none";
+      return;
+    }
+
+    output.style.display = "block";
+    output.innerHTML = `<strong>Child's Name:</strong> ${name}<br><strong>Date of Birth:</strong> ${dob}`;
+
+    // Clear old rows
+    schedule.innerHTML = `
+      <tr>
+        <th>Vaccine</th>
+        <th>Due Date</th>
+        <th>Status</th>
+      </tr>
+    `;
+
+    const dobDate = new Date(dob);
+
+    vaccines.forEach(vaccine => {
+      const dueDate = new Date(dobDate);
+      dueDate.setDate(dueDate.getDate() + vaccine.weeksAfterBirth * 7);
+      const dueDateStr = dueDate.toISOString().split("T")[0];
+
+      const row = `
+        <tr>
+          <td>${vaccine.name}</td>
+          <td>${dueDateStr}</td>
+          <td><input type="checkbox"> Mark as Given</td>
+        </tr>
+      `;
+      schedule.innerHTML += row;
+    });
+
+    scheduleContainer.style.display = "block";
+  }
+</script>
+
+
+<div class="center-btn">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+</div>
+</body>
+</html>
+   
